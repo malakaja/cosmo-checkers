@@ -1,0 +1,26 @@
+{
+    "status": {
+        "block": {
+            "height": 1161
+        }
+    },
+    "players": {
+        "cosmos1skth6hudj9p4cgcevl5ck2x9t34ldg2hkvay3t": {
+            "gameIds": [
+                "1"
+            ]
+        },
+        "cosmos1mr4xd93jtcuf0z7aqzmh9ft504yf9xzx3k8q4k": {
+            "gameIds": [
+                "1"
+            ]
+        }
+    },
+    "games": {
+        "1": {
+            "redAddress": "cosmos1mr4xd93jtcuf0z7aqzmh9ft504yf9xzx3k8q4k",
+            "blackAddress": "cosmos1skth6hudj9p4cgcevl5ck2x9t34ldg2hkvay3t",
+            "deleted": false
+        }
+    }
+}

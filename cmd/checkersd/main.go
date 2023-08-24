@@ -13,7 +13,7 @@ func main() {
 		app.Name,
 		app.AccountAddressPrefix,
 		app.DefaultNodeHome,
-		app.Name,
+		"checkers-1",
 		app.ModuleBasics,
 		app.New,
 		// this line is used by starport scaffolding # root/arguments

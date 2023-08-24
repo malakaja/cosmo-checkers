@@ -9,6 +9,12 @@ message StoredGame {
   string turn = 3; 
   string black = 4; 
   string red = 5; 
-  
+  string winner = 6;
+  string deadline = 7;
+  uint64 moveCount = 8;
+  string beforeIndex = 9; // Pertains to the FIFO. Toward head.
+  string afterIndex = 10; // P
+  uint64 wager = 11;
+  string denom = 12;
 }
 
