@@ -1,0 +1,12 @@
+syntax = "proto3";
+package cosmocheckers.checkers.checkers;
+
+option go_package = "github.com/malakaja/cosmo-checkers/checkers/x/checkers/types";
+
+message SystemInfo {
+  uint64 nextId = 1; 
+  string fifoHeadIndex = 2; // Will contain the index of the game at the head.
+  string fifoTailIndex = 3; 
+
+  
+}
