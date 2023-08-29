@@ -55,10 +55,10 @@ let aliceClient: CheckersSigningStargateClient,
 
 before("create signing clients", async function () {
     aliceClient = await CheckersSigningStargateClient.connectWithSigner(RPC_URL, aliceSigner, {
-        gasPrice: GasPrice.fromString("0upawn"),
+        gasPrice: GasPrice.fromString("0stake"),
     })
     bobClient = await CheckersSigningStargateClient.connectWithSigner(RPC_URL, bobSigner, {
-        gasPrice: GasPrice.fromString("0upawn"),
+        gasPrice: GasPrice.fromString("0stake"),
     })
     checkers = aliceClient.checkersQueryClient!.checkers
 })
@@ -82,34 +82,34 @@ const whoseAddress = (who: Player) => (who == "b" ? alice : bob)
 
 
 const aliceCredit = {
-    upawn: 100,
+    stake: 100,
     token: 1,
 },
 bobCredit = {
-    upawn: 100,
+    stake: 100,
     token: 1,
 }
 
 before("credit test accounts", async function () {
  this.timeout(40_000)
     if (
-        parseInt((await aliceClient.getBalance(alice, "upawn")).amount, 10) < aliceCredit.upawn ||
+        parseInt((await aliceClient.getBalance(alice, "stake")).amount, 10) < aliceCredit.stake ||
         parseInt((await aliceClient.getBalance(alice, "token")).amount, 10) < aliceCredit.token
     )
         await askFaucet(alice, aliceCredit)
-    expect(parseInt((await aliceClient.getBalance(alice, "upawn")).amount, 10)).to.be.greaterThanOrEqual(
-        aliceCredit.upawn,
+    expect(parseInt((await aliceClient.getBalance(alice, "stake")).amount, 10)).to.be.greaterThanOrEqual(
+        aliceCredit.stake,
     )
     expect(parseInt((await aliceClient.getBalance(alice, "token")).amount, 10)).to.be.greaterThanOrEqual(
         aliceCredit.token,
     )
     if (
-        parseInt((await bobClient.getBalance(bob, "upawn")).amount, 10) < bobCredit.upawn ||
+        parseInt((await bobClient.getBalance(bob, "stake")).amount, 10) < bobCredit.stake ||
         parseInt((await bobClient.getBalance(bob, "token")).amount, 10) < bobCredit.token
     )
         await askFaucet(bob, bobCredit)
-    expect(parseInt((await bobClient.getBalance(bob, "upawn")).amount, 10)).to.be.greaterThanOrEqual(
-        bobCredit.upawn,
+    expect(parseInt((await bobClient.getBalance(bob, "stake")).amount, 10)).to.be.greaterThanOrEqual(
+        bobCredit.stake,
     )
     expect(parseInt((await bobClient.getBalance(bob, "token")).amount, 10)).to.be.greaterThanOrEqual(
         bobCredit.token,
@@ -186,7 +186,7 @@ it("can continue the game up to before the double capture", async function () {
                     },
                 ],
                 {
-                    amount: [{ denom: "upawn", amount: "0" }],
+                    amount: [{ denom: "stake", amount: "0" }],
                     gas: "500000",
                 },
                 `playing move ${txIndex}`,
